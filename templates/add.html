@@ -1,0 +1,37 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+<body style="background-color:red ! important;">
+{% block title %}Add A New Cafe 🥤🥤 {% endblock %}
+
+{% block content %}
+<div class="container center-add-table col-lg-11">
+    <div class="row center-table col-lg-11 justify-content-center d-flex row justify-content-center flex-grow-1 .mr-auto">
+        <div class="col-lg-4 col-sm-12 col-md-6 center-add-table d-flex row justify-content-center">
+
+            <h1>Add a new cafe of your liking </h1>
+            <h2> 🥤☕🥤 </h2>
+            {{ wtf.quick_form(form, novalidate = True) }}
+
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <h3>{{ message }}</h3>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <p class="space-above"><a href="{{ url_for('all_cafes')}}">See all cafes</a></p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>

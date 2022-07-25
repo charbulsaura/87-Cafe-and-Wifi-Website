@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+<body>
+{% block title %} 🥤 DELETE 🥤 {% endblock %}
+
+{% block content %}
+<div class="container center-add-table col-lg-11" style="margin-left: 400px; padding-top: 350px !important">
+    <div class="row center-table col-lg-11 justify-content-center d-flex row justify-content-center flex-grow-1 .mr-auto">
+        <div class="col-lg-3 col-sm-12 col-md-6 center-add-table d-flex row justify-content-center">
+
+            <h1> 🥤 DELETE 🥤 </h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <h3>{{ message }}</h3>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            {{ wtf.quick_form(delete_form, novalidate = True) }}
+
+            <p class="space-above"><a href="{{ url_for('all_cafes')}}">See all cafes</a></p>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+</body>

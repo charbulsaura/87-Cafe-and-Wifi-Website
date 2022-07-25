@@ -1,0 +1,56 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}Cafes{% endblock %}
+
+{% block content %}
+
+<div class="container center-table col-lg-11 col-md-12 d-flex row justify-content-center flex-grow-1 .mr-auto ">
+    <div class="row col-auto justify-content-center">
+        <div class="col-sm-30">
+
+            <h1>Cafes ☕ Compilation</h1>
+            <table class="table table-dark table-responsive">
+
+                <thead>
+                <tr>
+                    {% for item in cafe_attr %}
+                    <th scope="col" class="col-lg-1">{{item}}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+
+                <tbody>
+
+                {% for i in range(cafes|length) %}
+                <tr>
+                    {% for j in range(cafes[i]|length) %}
+                    {% if "http" in (cafes[i][j]) %}
+                    <th><a href="{{cafes[i][j]}}" class="col-lg-1">Link: {{cafes[i][0][:14]}}</a></th>
+                    {% elif j==0 %}
+                    <th><a href="{{ url_for('update_cafe_details', edit_link_name=cafes[i][j] )}}" class="col-lg-1" style="color:#41aed9 !important left-margin:20px !important"> ✔️</a></th>
+
+                    {% elif j==12 %}
+                    <th><a href="{{ url_for('delete_cafe', name=cafes[i][j] )}}" class="col-lg-1" style="color:#ff4629 !important">✘</a></th>
+                    {% else %}
+                    <th scope="row" class="col-lg-1">{{cafes[i][j]}}</th>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                </tr>
+
+                </tbody>
+
+            </table>
+            <p><a href="{{ url_for('update_cafe_details', edit_link_name='COFFEE')}}">Update hideouts</a></p>
+            <p><a href="{{ url_for('home')}}">I'm a coffee addict. Click to agree</a></p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

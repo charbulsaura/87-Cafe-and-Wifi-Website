@@ -1,0 +1,35 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}COFFFFEEEEE!{% endblock %}
+
+{% block content %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
+<div class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">COFFEE is your second HOME. </h1>
+
+        <h3>>>> Ever dream of chillaxing in a cafe but can't neglect your financial status? <<<</h3>
+        <h3>>>> Need valuable resources for your daily working needs? <<< </h3>
+        <a class=" btn-warning btn-lg col-lg-6 center-button" href="{{ url_for('all_cafes')}}" role="button"> ☕🏘 EXPLORE
+            ADDICTIVE CAFFEINE-JUNKIE DREAMWORLDS!</a>
+        <hr>
+        <h3>>>> Welcome to your cozy home for specially love-brewed coffee! <<<</h3>
+        <a class=" btn-warning btn-lg col-lg-6 center-button" href="{{ url_for('add_cafe',cafe_to_update_id=0 ) }}"
+           role="button"> 🏘 Introduce
+            new hideouts to the community!</a>
+        <hr>
+        <h2> CLICK TO DISCOVER THE 5 ESSENTIAL C's IN YOUR LIFE </h2>
+        <a class=" btn-warning btn-lg col-lg-6 center-button" href="{{ url_for('essential_c')}}" role="button"> ☕IT'S C'S
+            ALL THE WAY DOWN☕ </a>
+        <h1> ☕🏘☕</h1>
+    </div>
+</div>
+
+
+{% endblock %}

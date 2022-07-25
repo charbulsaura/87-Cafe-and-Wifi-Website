@@ -1,0 +1,82 @@
+/* This CSS file will need to be added to the styling of
+your web pages for the styles to be rendered. */
+
+body {
+background-color: #916f39;
+color: #b0d7a7 !important;
+}
+
+a {
+    color: #ffc107;
+}
+
+/* Want control label to only turn grey when not validated... but not overriding bootstrap*/
+.form-group .has-error .required .control-label {
+ color: #686662 !important;
+}
+
+.control-label {
+ color: #4ce999 !important;
+}
+
+.help-block {
+    color: #951711 !important;
+}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  color: #b0d7a7 !important;
+  background-color: #6e5904;
+}
+
+
+.space-above {
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+/* PUSHES THE BUTTONS TO THE CENTER & CREATES MARGINS BET 2 BUTTONS - Why not working when set with shorthand?*/
+.center-button{
+  margin-left: 300px;
+  margin-right: 300px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+/* PUSHES THE add.html TABLE TO THE CENTER*/
+.center-add-table {
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+/* PUSHES THE cafe.html TABLE TO THE CENTER*/
+.center-table {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+/*WHY DOESNT THE TABLE PROPERTIES/WIDTH CHANGE NO MATTER WHAT U PUT IN THE CSS FILE? */
+table .w-100 { width:100%; }
+table, th, td , tr{
+text-align: center;
+border: 3.5px dotted;
+width: auto;
+}
+
+div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/*CENTERS WTForm LABELS */
+.form-control {
+text-align: center !important;
+}
